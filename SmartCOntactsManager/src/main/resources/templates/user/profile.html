@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="user/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Document</title>
+</head>
+<body>
+
+	<section>
+
+		<div class="container">
+
+			<section class="h-100 gradient-custom-2">
+				<div class="container py-5 h-100">
+					<div
+						class="row d-flex justify-content-center align-items-center h-100">
+						<div class="col col-lg-9 col-xl-7">
+							<div class="card">
+								<div class="rounded-top text-white d-flex flex-row"
+									style="background-color: #000; height: 200px;">
+									<div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+										<img th:src="@{'/image/'+${user.imageurl}}"
+											alt="Generic placeholder image"
+											class="img-fluid img-thumbnail mt-4 mb-2"
+											style="width: 150px; z-index: 1">
+										<!-- <button type="button" class="btn btn-outline-dark"
+											data-mdb-ripple-color="dark" style="z-index: 1;">
+											Edit profile</button> -->
+									</div>
+									<div class="ms-3" style="margin-top: 130px;">
+										<h5 th:text="${user.name}">Andy Horwitz</h5>
+										<div th:if="${user.enabled}">
+											<p class="text-success">Active</p>
+										</div>
+										<div th:unless="${user.enabled}">
+											<p class="text-danger bold">Not Active</p>
+										</div>
+
+									</div>
+								</div>
+								<div class="p-4 text-black" style="background-color: #f8f9fa;">
+									<div class="d-flex justify-content-end text-center py-1">
+										<div class="me-5">
+											<p class="mb-1 h5" th:text="${user.email}">253</p>
+											<p class="small text-muted mb-0">Email</p>
+										</div>
+
+									</div>
+								</div>
+								<div class="card-body p-4 text-black">
+									<div class="mb-5">
+										<p class="lead fw-normal mb-1">About</p>
+										<div class="p-4" style="background-color: #f8f9fa;">
+											<p class="font-italic mb-1" th:text="${user.about}">Web
+												Developer</p>
+
+										</div>
+									</div>
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</div>
+
+		<script type="text/javascript">
+			   $(document).ready(() => {
+				   $(".item").removeClass("active");
+				   $("#home-link4").addClass("active");
+			   });
+			</script>
+
+	</section>
+</body>
+</html>

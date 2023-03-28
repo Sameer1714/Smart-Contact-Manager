@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Login Page</title>
+</head>
+<body>
+
+	<section>
+
+
+		<div class="container py-5 bg-white mt-5">
+			<div class="row justify-content-center align-items-center">
+				<div class="col-md-6">
+
+					<h3 class="text-center">Your Registered Email</h3>
+
+					<div th:if="${session.message}"
+						th:classappend="${session.message.type}"
+						class="alert alert-primary text-center" role="alert">
+						<p th:text="${session.message.content}"></p>
+
+						<th:block th:text="${#session.removeAttribute('message')}">
+						</th:block>
+
+						<!-- <th:block th:inline="text"> [[${#session.removeAttribute('message')}]]</th:block> -->
+
+					</div>
+
+					<form th:action="@{/sendotp}" method="post">
+
+						<div class="form-group col-md-4 mt-3"></div>
+						<input type="email" class="form-control" name="email"
+							placeholder="Enter your Email" required>
+
+						<div class="text-center mt-3">
+							<button type="submit" class="btn btn-warning">Send OTP</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</section>
+
+
+</body>
+</html>
